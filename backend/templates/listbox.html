@@ -1,3 +1,4 @@
+<div class="post-block-wrapper">
 <div class="post-block {{ additional_div_class }}">
     <h2>{{ header }}</h2>
     {% for post in posts %}
@@ -24,4 +25,5 @@
         <div class="breaker"></div>
         <a href="{% url footer_link %}">{{ footer }}</a>
     {% endif %}
+    </div>
 </div>
