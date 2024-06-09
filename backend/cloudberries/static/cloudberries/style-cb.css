@@ -120,6 +120,7 @@ a {
 
 a:hover {
     color: var(--hover-orange);
+    font-family: "Tiny5", "Fira Sans Condensed", sans-serif;
 }
 
 p {
@@ -150,7 +151,10 @@ p {
     min-height: 4rem;
     max-width: 4rem;
     max-height: 4rem;
-    background-image: var(--cloudberry);
+    background-image: url("/static/cloudberries/cloudberry-pixel.png");
+    background-size: contain;
+    image-rendering: pixelated;
+    /* background-image: var(--cloudberry); */
     background-repeat: no-repeat;
 }
 
