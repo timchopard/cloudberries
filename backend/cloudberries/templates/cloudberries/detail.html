@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="post-block-wrapper">
+    <div class="post-block">
+    <h2 class="blog-post">{{ post.title }}</h2>
+    <small>
+        {{ post.created_on.date }} | Categories:
+        {% for category in post.categories.all %}
+            <a href="{% url 'cloudberries_category' category.name %}">
+                {{ category.name }}
+            </a>
+        {% endfor %}
+    </small>
+    <p>{{ post.body | linebreaks }}</p>
+</div>
+</div>
+{% endblock page_content %}

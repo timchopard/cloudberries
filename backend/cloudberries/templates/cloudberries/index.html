@@ -1,0 +1,15 @@
+{% extends "onlyheader.html" %}
+
+{% block base %}
+<body class="homepage">
+<div class="index-wrapper">
+    <div class="title-wrapper">
+        <div class="cloudberry-large"></div>
+        <h1 class="main-title">cloudberries</h1>
+    </div>
+    {% block posts %}
+    {% include "listbox.html" with posts=posts header=post_header footer=post_footer footer_link=footer_link additional_div_class="home-post-block" %}
+    {% endblock posts %}
+</div>
+</body>
+{% endblock base %}

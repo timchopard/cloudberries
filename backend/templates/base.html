@@ -1,0 +1,16 @@
+{% extends "onlyheader.html" %}
+
+{% block base %}
+<body>
+    <div class="cloudberries-header">
+    <div class="cloudberry"></div>
+    <h1>cloudberries</h1>
+    </div>
+    <a class="menu-item" href="{% url 'cloudberries_index' %}">Home</a>
+    <a class="menu-item" href="{% url 'cloudberries_posts' %}">Blog</a>
+    <hr>
+    {% block page_title %}{% endblock page_title %}
+    {% block page_content %}{% endblock page_content %}
+</body>
+</html>
+{% endblock base %}

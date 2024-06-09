@@ -1,0 +1,27 @@
+<div class="post-block {{ additional_div_class }}">
+    <h2>{{ header }}</h2>
+    {% for post in posts %}
+        <h3>
+            <a href="{% url 'cloudberries_detail' post.pk %}">
+                {{ post.title }}
+            </a>
+        </h3>
+        <small>
+            {{ post.created_on.date }} | Categories:
+            {% for category in post.categories.all %}
+                <a href="{% url 'cloudberries_category' category.name %}">
+                    {{ category.name }}{% if not forloop.last %}, 
+                    {% endif %}
+                </a>
+            {% endfor %}
+        </small>
+        <p>{{ post.body | slice:"200" }}...</p>
+        {% if not forloop.last %}
+            <div class="breaker"></div>
+        {% endif %}
+    {% endfor %}
+    {% if footer_link%}
+        <div class="breaker"></div>
+        <a href="{% url footer_link %}">{{ footer }}</a>
+    {% endif %}
+</div>
