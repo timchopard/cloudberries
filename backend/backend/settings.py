@@ -35,9 +35,7 @@ DEBUG = os.environ.get("DJANGO_DEBUG", '') != 'False'
 ALLOWED_HOSTS = [
     'localhost',
     '.cloudberries.io',
-    '127.0.0.1',
-    '152.67.67.158',
-
+    '*', #TODO THIS IS TEMPORARY [!!!]
 ]
 
 
