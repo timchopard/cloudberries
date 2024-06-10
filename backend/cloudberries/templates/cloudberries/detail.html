@@ -12,7 +12,7 @@
             </a>
         {% endfor %}
     </small>
-    <p>{{ post.body | linebreaks }}</p>
+    <p>{{ body | safe }}</p>
 </div>
 </div>
 {% endblock page_content %}

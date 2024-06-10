@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from cloudberries.models import Post
+from cloudberries.markdownparser import MarkDownToHtml
 
 def cloudberries_index(request):
     posts = Post.objects.all().order_by("-created_on")[:3]
@@ -32,7 +33,10 @@ def cloudberries_category(request, category):
 
 def cloudberries_detail(request, pk):
     post = Post.objects.get(pk=pk)
+    mdhtml = MarkDownToHtml(post)
+    body = mdhtml.iterate(post.body)
     context = {
         "post": post,
+        "body": body,
     }
     return render(request, "cloudberries/detail.html", context)
