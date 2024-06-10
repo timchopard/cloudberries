@@ -156,9 +156,9 @@ p {
     border-radius: 0.6rem;
     background: linear-gradient(
         135deg, 
-        var(--pale-blue)
+        var(--main-orange)
         0%, 
-        var(--pale-orange)
+        var(--main-green)
         100%
     );
     margin-top: 2rem;
