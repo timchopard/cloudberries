@@ -33,8 +33,7 @@ SECRET_KEY = os.environ.get(
 DEBUG = os.environ.get("DJANGO_DEBUG", '') != 'False'
 
 
-DJANGO_ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", '').split(' ')
-print(DJANGO_ALLOWED_HOSTS)
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", '').split(' ')
 # ALLOWED_HOSTS = [
     # 'localhost',
     # '.cloudberries.io',
