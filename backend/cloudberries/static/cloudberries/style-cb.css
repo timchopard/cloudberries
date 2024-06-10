@@ -214,8 +214,8 @@ p {
     text-shadow: 
         -0.1rem 0.1rem var(--hover-orange), 
         -0.2rem 0.2rem var(--warm-yellow),
-        0.1rem -0.1rem var(--hover-orange),
-        0.2rem -0.2rem var(--warm-yellow);
+        /* 0.1rem -0.1rem var(--hover-orange) */
+        0.1rem -0.1rem var(--warm-yellow);
     }
     .title-wrapper {
         background-image: var(--blob-dark);
