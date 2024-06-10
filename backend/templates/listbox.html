@@ -16,7 +16,7 @@
                 </a>
             {% endfor %}
         </small>
-        <p>{{ post.body | slice:"200" }}...</p>
+        <p>{{ post.summary | slice:"200" }}...</p>
         {% if not forloop.last %}
             <div class="breaker"></div>
         {% endif %}
