@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from cloudberries.models import Post
+from cloudberries.models import Category, Post
 from cloudberries.markdownparser import MarkDownToHtml
 
 def cloudberries_index(request):
@@ -24,7 +24,9 @@ def cloudberries_category(request, category):
     posts = Post.objects.filter(
         categories__name__contains=category
     ).order_by("-created_on")
+    categories = Category.objects.all()
     context = {
+        "categories": categories,
         "category": category,
         "posts": posts,
         "post_header": f"Posts Tagged: {category}"

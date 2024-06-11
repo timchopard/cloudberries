@@ -295,5 +295,32 @@ code {
     border-radius: 0.2rem;
 }
 
+a.selected {
+    color: var(--orange-gray);        
+}
+
+.category {
+    background-color: var(--orange-gray);
+    /* max-height: 1.2rem; */
+    /* min-height: 1.2rem; */
+    border-radius: 0.6rem;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    margin: 0.5rem;
+}
+
+.selected-category {
+    background-color: var(--main-orange);
+}
+
+.categories {
+    max-width: 30rem;
+    padding: 1rem;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+}
+
 /* Uncomment to activate darkmode based on system settings */
 /* @import "dark-mode.css"; */
