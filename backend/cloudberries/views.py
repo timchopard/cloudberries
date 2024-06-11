@@ -42,3 +42,12 @@ def cloudberries_detail(request, pk):
         "body": body,
     }
     return render(request, "cloudberries/detail.html", context)
+
+def cloudberries_contact(request):
+    return render(request, "cloudberries/underconstruction.html")
+
+def cloudberries_projects(request):
+    return render(request, "cloudberries/underconstruction.html")
+
+def cloudberries_tutorials(request):
+    return render(request, "cloudberries/underconstruction.html")

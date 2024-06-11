@@ -20,9 +20,63 @@ body{
     background-size: cover;
 }
 
-    
 hr {
-    border-color: var(--main-orange);
+    /* border-color: var(--main-orange); */
+    border-color: transparent;
+    height: 0.05rem;
+    margin: auto;
+    width: 80%;
+    background: linear-gradient(
+        90deg, 
+        transparent 0%, 
+        rgba(240, 140, 0, 1) 50%, 
+        transparent 100%
+    );
+    margin-top: 0.5rem;
+}
+
+.menu-item {
+    margin-top: 1rem;
+    display: inline-block;
+    min-width: 6rem;
+    max-width: 6rem;
+    height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1.2rem;
+    padding-bottom: 0;
+    background: var(--blob-menu-1);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    color: white;
+    text-align: center;
+}
+
+.menu-item:nth-child(1) {
+    background-image: var(--blob-menu-4);
+    background-size: 70%;
+}
+
+.menu-item:nth-child(3) {
+    background-image: var(--blob-menu-3);
+    background-size: 80%;
+}
+
+.menu-item:nth-child(4) {
+    background-image: var(--blob-menu-2);
+    background-size: 70%;
+}
+
+.menu-item:nth-child(5) {
+    background-image: var(--blob-menu-5);
+    background-size: 75%;
+}
+
+div.top-menu {
+    max-width: fit-content;
+    margin: auto;
+    min-height: 5.5rem;
 }
 
 .index-wrapper {
@@ -156,11 +210,8 @@ p {
     padding: 0.2rem;
     border-radius: 0.6rem;
     background: linear-gradient(
-        135deg, 
-        var(--main-orange)
-        0%, 
-        var(--main-green)
-        100%
+        90deg, #66a80f, #7da600, #92a400, #a7a100, 
+        #ba9d00, #cd9800, #df9200, #f08c00
     );
     margin-top: 2rem;
     margin-bottom: 3rem;
@@ -180,11 +231,6 @@ p {
     );
 }
 
-.menu-item {
-    width: 10rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
 
 .cloudberries-header {
     display: flex;
@@ -322,5 +368,12 @@ a.selected {
 
 }
 
+
 /* Uncomment to activate darkmode based on system settings */
-/* @import "dark-mode.css"; */
+/* @import "dark-mode.css"; *.menu-item {
+    min-width: 20rem;
+    max-width: 20rem;
+    background-color: red;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}/

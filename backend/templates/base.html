@@ -8,9 +8,13 @@
     <div class="cloudberry"></div>
     <h1>cloudberries</h1>
     </div>
-    <a class="menu-item" href="{% url 'cloudberries_index' %}">Home</a>
-    <a class="menu-item" href="{% url 'cloudberries_posts' %}">Blog</a>
-    <hr>
+    <div class="top-menu">
+        <a class="menu-item" href="{% url 'cloudberries_index' %}">Home</a>
+        <a class="menu-item" href="{% url 'cloudberries_projects' %}">Projects</a>
+        <a class="menu-item" href="{% url 'cloudberries_tutorials' %}">Tutorials</a>
+        <a class="menu-item" href="{% url 'cloudberries_posts' %}">Blog</a>
+        <a class="menu-item" href="{% url 'cloudberries_contact' %}">Contact</a>
+    </div>
     {% block page_title %}{% endblock page_title %}
     {% block page_content %}{% endblock page_content %}
 </body>

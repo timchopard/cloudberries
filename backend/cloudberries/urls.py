@@ -23,4 +23,19 @@ urlpatterns = [
         views.cloudberries_category, 
         name="cloudberries_category"
     ),
+    path(
+        "contact/",
+        views.cloudberries_contact,
+        name="cloudberries_contact"
+    ),
+    path(
+        "projects/",
+        views.cloudberries_projects,
+        name="cloudberries_projects"
+    ),
+    path(
+        "tutorials/",
+        views.cloudberries_tutorials,
+        name="cloudberries_tutorials"
+    ),
 ]
