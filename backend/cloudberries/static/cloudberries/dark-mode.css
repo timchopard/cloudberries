@@ -23,4 +23,8 @@
     .title-wrapper {
         background-image: var(--blob-dark);
     }
+
+    .parser-code {
+        background-color: var(--orange-gray);
+    }
 }

@@ -253,16 +253,46 @@ p {
     max-width: 40rem;
     min-width: 40rem;
     background-color: var(--orange-gray);
-    padding: 1rem;
-    border-radius: 0.7rem;
+    padding: 0.3rem;
+    border-radius: 0.4rem;
     margin: auto;
+    padding-bottom: 0.1rem;
+}
+
+.parser-code::after {
+    color: var(--light-orange-gray);
+    counter-increment: codecount;
+    content: "code block " counter(codecount);
+}
+
+.parser-eq-wrapper {
+    margin: auto;
+    display: flex;
+    max-width: 30rem;
+    min-width: 30rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.parser-eq-wrapper::after {
+    counter-increment: eqcount;
+    color: var(--light-orange-gray);
+    content: "   (eq. " counter(eqcount) ")";
+}
+
+.parser-eq {
+    max-width: 27rem;
+    min-width: 27rem;
+    margin: auto;
+    font-size: 1.5rem;
 }
 
 code {
     margin: 0;
-    font-size: 0.8rem;
+    font-size: 0.79rem; /* Allows 80 chars per line */
     white-space: pre-wrap;
     word-wrap: break-word;
+    border-radius: 0.2rem;
 }
 
 /* Uncomment to activate darkmode based on system settings */

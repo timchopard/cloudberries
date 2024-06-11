@@ -1,4 +1,12 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extrascripts%}
+    <script src="{% static "cloudberries/load-mathjax.js" %}" async></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai-sublime.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+{% endblock extrascripts%}
 
 {% block page_content %}
 <div class="post-block-wrapper">

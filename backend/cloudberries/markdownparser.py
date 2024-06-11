@@ -16,13 +16,23 @@ class MarkDownToHtml():
                 stripped = line.lstrip(' ')
                 if len(stripped) < 1:
                     continue
+                # skip over LaTeX expressions
+                if len(line.split('$')) == 3:
+                    output += f"<div class=\"parser-eq-wrapper\">"
+                    output += f"<p class=\"parser-eq\">{line}</p></div>{ending}"
+                    continue
+                # find and format lists
                 additional, line, parsed = self.__parse_lists(line)
                 if additional is not None:
                     output += additional
+                # find and format code blocks
                 if '```' in line:
                     self.in_code = not self.in_code
                     if self.in_code:
+                        lang = line.split('```')[1]
+                        print(lang)
                         output += '<pre class=\"parser-code\"><code>'
+                        print(output)
                     else:
                         output += '</code></pre>\n'
                     continue
@@ -61,20 +71,24 @@ class MarkDownToHtml():
 
         prefix =  f"<li class=\"parser-li\">"
         line = f"{prefix}{self.parse_line(' '.join(line.split(' ')[1:]))}</li>"
+        print(line)
         return output_value, line, True
 
     def parse_line(self, line:str) -> str:
         if len(line) < 1:
             return ''
+        line = self.__parse_links(line)
         if line[0] == '#':
             return self.create_heading(line)
         elif '_' in line:
-            return self.parse_bold_italic(line)
+            return self.__parse_bold_italic(line)
         else:
             return f"<p class=\"parser-p\">{line}</p>"
-        return line
     
-    def parse_bold_italic(self, line:str) -> str:
+    def __parse_links(self, line:str) -> str:
+        return line
+
+    def __parse_bold_italic(self, line:str) -> str:
         line = self.__find_replace_helper(line, '__', '<b>')
         line = self.__find_replace_helper(line, '_', '<i>')
         return line
