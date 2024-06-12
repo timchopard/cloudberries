@@ -34,11 +34,9 @@ DEBUG = os.environ.get("DJANGO_DEBUG", '') != 'False'
 
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", '').split(' ')
-# ALLOWED_HOSTS = [
-    # 'localhost',
-    # '.cloudberries.io',
-    # '*', #TODO THIS IS TEMPORARY [!!!]
-# ]
+NOTIFY_EMAIL = os.environ.get("DJANGO_NOTIFY_EMAIL", '')
+DEFAULT_FROM_EMAIL = os.environ.get("DJANGO_FROM_EMAIL", '')
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
 # Application definition

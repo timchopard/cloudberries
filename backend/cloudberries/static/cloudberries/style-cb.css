@@ -21,7 +21,6 @@ body{
 }
 
 hr {
-    /* border-color: var(--main-orange); */
     border-color: transparent;
     height: 0.05rem;
     margin: auto;
@@ -41,7 +40,7 @@ hr {
     min-width: 6rem;
     max-width: 6rem;
     height: 3rem;
-    padding-left: 1rem;
+    padding-left: 1.5rem;
     padding-right: 1rem;
     padding-top: 1.2rem;
     padding-bottom: 0;
@@ -51,24 +50,29 @@ hr {
     background-size: 100%;
     color: white;
     text-align: center;
+    font-family: "Tiny5", sans-serif;
 }
 
 .menu-item:nth-child(1) {
+    padding-left: 1rem;
     background-image: var(--blob-menu-4);
     background-size: 70%;
 }
 
 .menu-item:nth-child(3) {
+    padding-left: 1rem;
     background-image: var(--blob-menu-3);
     background-size: 80%;
 }
 
 .menu-item:nth-child(4) {
+    padding-left: 0rem;
     background-image: var(--blob-menu-2);
     background-size: 70%;
 }
 
 .menu-item:nth-child(5) {
+    padding-left: 1.5rem;
     background-image: var(--blob-menu-5);
     background-size: 75%;
 }
@@ -132,7 +136,12 @@ h2 {
     width: fit-content;
     margin-right: 1rem;
     font-weight: 300;
-    text-shadow: -0.1rem 0.1rem var(--hover-orange), -0.2rem 0.2rem var(--warm-yellow);
+    text-shadow: -0.1rem 0.1rem var(--hover-orange), 
+                 /* 0.1rem -0.1rem var(--hover-orange), 
+                 0.1rem 0.1rem var(--hover-orange), 
+                 -0.1rem -0.1rem var(--hover-orange),  */
+                 -0.2rem 0.2rem var(--warm-yellow)
+    ;
 }
 
 h2.blog-post {
@@ -185,7 +194,6 @@ p {
     background-image: url("/static/cloudberries/cloudberry-pixel.png");
     background-size: contain;
     image-rendering: pixelated;
-    /* background-image: var(--cloudberry); */
     background-repeat: no-repeat;
 }
 
@@ -347,8 +355,6 @@ a.selected {
 
 .category {
     background-color: var(--orange-gray);
-    /* max-height: 1.2rem; */
-    /* min-height: 1.2rem; */
     border-radius: 0.6rem;
     padding: 0.2rem 0.5rem 0.2rem 0.5rem;
     margin: 0.5rem;
@@ -368,12 +374,54 @@ a.selected {
 
 }
 
+form {
+    font-size: 1.2rem;
+    padding: 1rem;
+}
 
+label {
+    width: 7rem;
+    display: inline-block;
+    font-family: "Red Hat Display", sans-serif;
+    font-weight: 600;
+    color: var(--light-orange-gray);
+}
+
+input {
+    display: inline-block;
+    width: 49rem;
+    margin-top: 1rem;
+    border-color: var(--hover-orange);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+input#id_cc_myself {
+    width: 1rem;
+}
+
+textarea {
+    display: inline-block;
+    width: 49rem;
+    margin-top: 1rem;
+    border-color: var(--hover-orange);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    resize: vertical;
+}
+
+.contact-button {
+    background-color: var(--orange-gray);
+    padding: 0.5rem;
+    margin-top: 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--main-orange);
+}
+
+.contact-button:hover {
+    background-color: var(--main-orange);
+    color: var(--orange-gray);
+}
 /* Uncomment to activate darkmode based on system settings */
 /* @import "dark-mode.css"; *.menu-item {
-    min-width: 20rem;
-    max-width: 20rem;
-    background-color: red;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}/

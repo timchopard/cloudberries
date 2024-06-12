@@ -2,6 +2,12 @@ from django.shortcuts import render
 from cloudberries.models import Category, Post
 from cloudberries.markdownparser import MarkDownToHtml
 
+from django.conf import settings
+from django.views.generic import FormView
+from django.core.mail import send_mail
+from django.shortcuts import reverse
+from .forms import ContactForm
+
 def cloudberries_index(request):
     posts = Post.objects.all().order_by("-created_on")[:3]
     context = {
@@ -43,8 +49,40 @@ def cloudberries_detail(request, pk):
     }
     return render(request, "cloudberries/detail.html", context)
 
-def cloudberries_contact(request):
-    return render(request, "cloudberries/underconstruction.html")
+
+class ContactView(FormView):
+    form_class = ContactForm
+    template_name = "cloudberries/contact.html"
+
+    def get_success_url(self):
+        return reverse("cloudberries_contact")
+    
+    def form_valid(self, form):
+        sender = form.cleaned_data.get("email")
+        subject = form.cleaned_data.get("subject")
+        message = form.cleaned_data.get("message")
+        cc_myself = form.cleaned_data.get("cc_myself")
+
+        full_message =  f"Received message from < {sender} > "
+        full_message += f"with subject [ {subject} ]"
+        full_message += '\n' + 20 * '-' + '\n\n'
+        full_message += f"{message}"
+
+        send_vars = {
+            "subject" : "Message from cloudberries Contact Form",
+            "message" : full_message,
+            "fail_silently" : False,
+            "from_email" : settings.DEFAULT_FROM_EMAIL,
+        }
+
+        send_mail(recipient_list=[settings.NOTIFY_EMAIL], **send_vars)
+
+        if cc_myself:
+            send_mail(recipient_list=[sender], **send_vars)
+
+        return super(ContactView, self).form_valid(form)
+# def cloudberries_contact(request):
+#     return render(request, "cloudberries/contact.html")
 
 def cloudberries_projects(request):
     return render(request, "cloudberries/underconstruction.html")
