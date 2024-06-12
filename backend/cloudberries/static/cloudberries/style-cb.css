@@ -212,13 +212,19 @@ p {
     max-width: 50rem;
 }
 
+.padder {
+    margin: auto;
+    max-width: fit-content;
+    padding: 0 1rem 0 1rem;
+}
+
 .post-block-wrapper {
     max-width: fit-content;
     margin: auto;
     padding: 0.2rem;
     border-radius: 0.6rem;
     background: linear-gradient(
-        90deg, #66a80f, #7da600, #92a400, #a7a100, 
+        315deg, #66a80f, #7da600, #92a400, #a7a100, 
         #ba9d00, #cd9800, #df9200, #f08c00
     );
     margin-top: 2rem;
