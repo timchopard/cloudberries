@@ -212,12 +212,6 @@ p {
     max-width: 50rem;
 }
 
-.padder {
-    margin: auto;
-    max-width: fit-content;
-    padding: 0 1rem 0 1rem;
-}
-
 .post-block-wrapper {
     max-width: fit-content;
     margin: auto;
