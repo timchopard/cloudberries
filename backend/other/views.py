@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 from plotly.offline import plot
 import plotly.express as px
-from dash import Dash, dcc, html, Input, Output
 
 def other_index(request):
     context = {
@@ -54,14 +53,12 @@ def internship(request):
         ), 
         axis=1
     )
-    print(df)
 
     fig = px.line(df, x="Weeks", y="value", color="Division/Location",
                   title="Cost of Hiring")
     fig.update_traces(mode="markers+lines")
     finished_plot = plot(fig, output_type="div")
     context = {'plot_div': finished_plot}
-    print(data)
     return render(request, "other/internship.html", context)
 
 def gas(request):
