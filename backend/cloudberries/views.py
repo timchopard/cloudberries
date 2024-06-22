@@ -73,8 +73,8 @@ class ContactView(FormView):
             "message" : full_message,
             "fail_silently" : False,
             "from_email" : settings.DEFAULT_FROM_EMAIL,
-            "auth_user" : settings.EMAIL_HOST_USER,
-            "auth_password" : settings.EMAIL_HOST_PASSWORD,
+            # "auth_user" : settings.EMAIL_HOST_USER,
+            # "auth_password" : settings.EMAIL_HOST_PASSWORD,
         }
 
         send_mail(recipient_list=[settings.NOTIFY_EMAIL], **send_vars)
