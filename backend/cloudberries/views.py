@@ -49,7 +49,6 @@ def cloudberries_detail(request, pk):
     }
     return render(request, "cloudberries/detail.html", context)
 
-
 class SuccessView(TemplateView):
     template_name = "cloudberries/success.html"
 
@@ -81,11 +80,10 @@ class ContactView(FormView):
         send_mail(recipient_list=[settings.NOTIFY_EMAIL], **send_vars)
 
         if cc_myself:
+            send_vars["subject"] = "Do Not Reply: Cloudberries Contact"
             send_mail(recipient_list=[sender], **send_vars)
 
         return super(ContactView, self).form_valid(form)
-# def cloudberries_contact(request):
-#     return render(request, "cloudberries/contact.html")
 
 def cloudberries_projects(request):
     return render(request, "cloudberries/underconstruction.html")

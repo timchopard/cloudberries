@@ -427,6 +427,37 @@ textarea {
     color: var(--orange-gray);
 }
 
+.four-oh-four {
+    margin: auto;
+    margin-top: 2rem;
+    max-width: 40rem;
+    min-width: 40rem;
+    max-height: 40rem;
+    min-height: 40rem;
+    background: var(--404-blob);
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+
+}
+
+h2.not-found {
+    text-shadow: none;
+    font-size: 10rem;
+    padding-top: 10rem;
+    padding-right: 3rem;
+    font-family: "Rubik Pixels";
+    user-select: none;
+}
+
+p.not-found {
+    padding-left: 8rem;
+    rotate: 20deg;
+    font-size: 1.4rem;
+    color: var(--orange-gray);
+    font-weight: 500;
+    text-shadow: 0.15rem 0.15rem var(--warm-yellow);
+}
 
 /* Uncomment to activate darkmode based on system settings */
 /* @import "dark-mode.css"; *.menu-item {
