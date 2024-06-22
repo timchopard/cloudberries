@@ -32,7 +32,7 @@ urlpatterns = [
     path(
         "success/",
         SuccessView.as_view(),
-        name="success"
+        name="cloudberries_success"
     ),
     path(
         "projects/",

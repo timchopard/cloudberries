@@ -58,7 +58,7 @@ class ContactView(FormView):
     template_name = "cloudberries/contact.html"
 
     def get_success_url(self):
-        return reverse("cloudberries_contact")
+        return reverse("cloudberries_success")
     
     def form_valid(self, form):
         sender = form.cleaned_data.get("sender")
