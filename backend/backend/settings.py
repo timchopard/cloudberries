@@ -47,7 +47,7 @@ EMAIL_HOST_USER = ''
 
 INSTALLED_APPS = [
     'cloudberries.apps.CloudberriesConfig',
-    'bernimprov.apps.BernimprovConfig',
+    # 'bernimprov.apps.BernimprovConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
