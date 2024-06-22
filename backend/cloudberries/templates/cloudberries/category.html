@@ -6,10 +6,10 @@
         {% for cat in categories %}
             {% if cat.name == category %}
                 <div class="category selected-category">
-                <a class="selected" href="{% url 'cloudberries_category' cat.name %}">
+                <a class="selected category-btn" href="{% url 'cloudberries_category' cat.name %}">
             {% else %}
                 <div class="category">
-                <a href="{% url 'cloudberries_category' cat.name %}">
+                <a class="category-btn" href="{% url 'cloudberries_category' cat.name %}">
             {% endif %}
                 {{ cat.name }}
             </a></div>

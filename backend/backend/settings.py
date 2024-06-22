@@ -34,15 +34,20 @@ DEBUG = os.environ.get("DJANGO_DEBUG", '') != 'False'
 
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", '').split(' ')
+
 NOTIFY_EMAIL = os.environ.get("DJANGO_NOTIFY_EMAIL", '')
 DEFAULT_FROM_EMAIL = os.environ.get("DJANGO_FROM_EMAIL", '')
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.sendgrid.net"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = ''
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'cloudberries.apps.CloudberriesConfig',
+    'bernimprov.apps.BernimprovConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
