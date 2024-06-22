@@ -3,7 +3,7 @@ from cloudberries.models import Category, Post
 from cloudberries.markdownparser import MarkDownToHtml
 
 from django.conf import settings
-from django.views.generic import FormView
+from django.views.generic import FormView, TemplateView
 from django.core.mail import send_mail
 from django.shortcuts import reverse
 from .forms import ContactForm
@@ -50,6 +50,9 @@ def cloudberries_detail(request, pk):
     return render(request, "cloudberries/detail.html", context)
 
 
+class SuccessView(TemplateView):
+    template_name = "cloudberries/success.html"
+
 class ContactView(FormView):
     form_class = ContactForm
     template_name = "cloudberries/contact.html"
@@ -73,8 +76,6 @@ class ContactView(FormView):
             "message" : full_message,
             "fail_silently" : False,
             "from_email" : settings.DEFAULT_FROM_EMAIL,
-            # "auth_user" : settings.EMAIL_HOST_USER,
-            # "auth_password" : settings.EMAIL_HOST_PASSWORD,
         }
 
         send_mail(recipient_list=[settings.NOTIFY_EMAIL], **send_vars)

@@ -1,7 +1,7 @@
 from django.urls import path 
 
 from . import views 
-from .views import ContactView
+from .views import ContactView, SuccessView
 
 urlpatterns = [
     path(
@@ -28,6 +28,11 @@ urlpatterns = [
         "contact/",
         ContactView.as_view(),
         name="cloudberries_contact"
+    ),
+    path(
+        "success/",
+        SuccessView.as_view(),
+        name="success"
     ),
     path(
         "projects/",
