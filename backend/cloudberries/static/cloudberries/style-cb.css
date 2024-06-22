@@ -35,15 +35,11 @@ hr {
 }
 
 .menu-item {
-    /* margin-top: 1rem; */
     display: inline-block;
     min-width: 6rem;
     max-width: 6rem;
     height: 3rem;
-    /* padding-left: 1.5rem; */
     padding-right: 1rem;
-    /* padding-top: 2.2rem; */
-    /* padding-bottom: 0; */
     padding-top: 1.5rem;
     padding-bottom: 0.7rem;
     background: var(--blob-menu-1);
@@ -112,16 +108,15 @@ h1 {
     margin-left: auto;
     width: fit-content;
     color: var(--warm-yellow);
-    letter-spacing: 0.7rem;
     align-self: center;
     background: -webkit-linear-gradient(315deg, #e67700, #ffc078);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: #e67700;
+    letter-spacing: 0.4rem;
     font-family: "Tiny5", "Fira Sans Condensed", sans-serif;
-    font-weight: 300;
-    font-style: normal;
+    font-size: 3rem;
 }
 
 .main-title {
@@ -190,10 +185,10 @@ p {
 }
 
 .cloudberry {
-    min-width: 4rem;
-    min-height: 4rem;
-    max-width: 4rem;
-    max-height: 4rem;
+    min-width: 8rem;
+    min-height: 8rem;
+    max-width: 8rem;
+    max-height: 8rem;
     background-image: url("/static/cloudberries/cloudberry-pixel.png");
     background-size: contain;
     image-rendering: pixelated;
