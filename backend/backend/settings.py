@@ -38,9 +38,10 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", '').split(' ')
 NOTIFY_EMAIL = os.environ.get("DJANGO_NOTIFY_EMAIL", '')
 DEFAULT_FROM_EMAIL = os.environ.get("DJANGO_FROM_EMAIL", '')
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.sendgrid.net"
+EMAIL_HOST = os.environ.get("DJANGO_EMAIL_HOST", '')
 EMAIL_PORT = 587
-EMAIL_HOST_USER = ''
+EMAIL_HOST_USER = os.environ.get("DJANGO_EMAIL_USER", '') 
+EMAIL_HOST_PASSWORD = os.environ.get("DJANGO_EMAIL_PASSWORD", '') 
 
 
 # Application definition
