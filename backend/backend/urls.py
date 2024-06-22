@@ -5,5 +5,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("cloudberries.urls")),
     # path("", include("mdhtml.urls")),
-    path("bernimprov/", include("bernimprov.urls")),
+    # path("bernimprov/", include("bernimprov.urls")),
 ]
