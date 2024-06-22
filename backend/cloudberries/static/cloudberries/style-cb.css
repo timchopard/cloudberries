@@ -427,17 +427,20 @@ textarea {
     color: var(--orange-gray);
 }
 
-.four-oh-four {
+.big-blob {
     margin: auto;
     margin-top: 2rem;
     max-width: 40rem;
     min-width: 40rem;
     max-height: 40rem;
     min-height: 40rem;
-    background: var(--404-blob);
-    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
+}
+
+.four-oh-four {
+    background: var(--404-blob);
+    background-repeat: no-repeat;
 
 }
 
@@ -457,6 +460,31 @@ p.not-found {
     color: var(--orange-gray);
     font-weight: 500;
     text-shadow: 0.15rem 0.15rem var(--warm-yellow);
+}
+
+div.success {
+    background: var(--success-blob);
+    background-repeat: no-repeat;
+}
+
+h2.success {
+    max-width: fit-content;
+    display: fixed;
+    margin: 5rem auto 2rem auto;
+    font-size: 6rem;
+    text-shadow: -0.3rem 0.3rem var(--hover-orange), 
+                 0.3rem -0.3rem var(--hover-orange), 
+                 0.6rem -0.6rem var(--warm-yellow),
+                 -0.6rem 0.6rem var(--warm-yellow);
+    user-select: none;
+}
+
+p.success {
+    display: fixed;
+    max-width: fit-content;
+    margin: 2rem auto 0 auto;
+    font-size: 1.4rem;
+    user-select: none;
 }
 
 /* Uncomment to activate darkmode based on system settings */

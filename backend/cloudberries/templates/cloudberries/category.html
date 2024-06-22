@@ -1,5 +1,12 @@
 {% extends "cloudberries/posts.html" %}
 
+{% block title %}
+    {% if category is None %}
+        cloudberries
+    {% else %}
+        Blog: {{ category }}
+    {% endif %}
+{% endblock title %}
 
 {% block posts %}
     <div class="categories">

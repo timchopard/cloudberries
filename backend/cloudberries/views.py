@@ -6,6 +6,7 @@ from django.conf import settings
 from django.views.generic import FormView, TemplateView
 from django.core.mail import send_mail
 from django.shortcuts import reverse
+from django.contrib.auth.decorators import login_required
 from .forms import ContactForm
 
 def cloudberries_index(request):

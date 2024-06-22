@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}
+    {% if post.title is None %}
+        cloudberries
+    {% else %}
+        {{ post.title }}
+    {% endif %}
+{% endblock title %}
+
 {% block extrascripts%}
     <script src="{% static "cloudberries/load-mathjax.js" %}" async></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai-sublime.min.css">

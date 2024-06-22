@@ -30,9 +30,7 @@ class MarkDownToHtml():
                     self.in_code = not self.in_code
                     if self.in_code:
                         lang = line.split('```')[1]
-                        print(lang)
                         output += '<pre class=\"parser-code\"><code>'
-                        print(output)
                     else:
                         output += '</code></pre>\n'
                     continue
@@ -71,7 +69,6 @@ class MarkDownToHtml():
 
         prefix =  f"<li class=\"parser-li\">"
         line = f"{prefix}{self.parse_line(' '.join(line.split(' ')[1:]))}</li>"
-        print(line)
         return output_value, line, True
 
     def parse_line(self, line:str) -> str:
