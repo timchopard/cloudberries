@@ -58,7 +58,7 @@ class ContactView(FormView):
         return reverse("cloudberries_contact")
     
     def form_valid(self, form):
-        sender = form.cleaned_data.get("email")
+        sender = form.cleaned_data.get("sender")
         subject = form.cleaned_data.get("subject")
         message = form.cleaned_data.get("message")
         cc_myself = form.cleaned_data.get("cc_myself")
