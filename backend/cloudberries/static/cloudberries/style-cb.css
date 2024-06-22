@@ -35,15 +35,17 @@ hr {
 }
 
 .menu-item {
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     display: inline-block;
     min-width: 6rem;
     max-width: 6rem;
     height: 3rem;
-    padding-left: 1.5rem;
+    /* padding-left: 1.5rem; */
     padding-right: 1rem;
-    padding-top: 1.2rem;
-    padding-bottom: 0;
+    /* padding-top: 2.2rem; */
+    /* padding-bottom: 0; */
+    padding-top: 1.5rem;
+    padding-bottom: 0.7rem;
     background: var(--blob-menu-1);
     background-repeat: no-repeat;
     background-position: center;
@@ -51,30 +53,27 @@ hr {
     color: white;
     text-align: center;
     font-family: "Tiny5", sans-serif;
+    font-size: 1.4rem;
 }
 
 .menu-item:nth-child(1) {
-    padding-left: 1rem;
     background-image: var(--blob-menu-4);
-    background-size: 70%;
+    background-size: 85%;
 }
 
 .menu-item:nth-child(3) {
     padding-left: 1rem;
     background-image: var(--blob-menu-3);
-    background-size: 80%;
+    background-size: 85%;
 }
 
 .menu-item:nth-child(4) {
-    padding-left: 0rem;
     background-image: var(--blob-menu-2);
-    background-size: 70%;
+    background-size: 80%;
 }
 
 .menu-item:nth-child(5) {
-    padding-left: 1.5rem;
     background-image: var(--blob-menu-5);
-    background-size: 75%;
 }
 
 div.top-menu {
@@ -161,6 +160,10 @@ a {
 a:hover {
     color: var(--hover-orange);
     font-family: "Tiny5", "Fira Sans Condensed", sans-serif;
+}
+
+.category-btn:hover {
+    font-family: "Red Hat Display", sans-serif;
 }
 
 p {
@@ -364,9 +367,13 @@ a.selected {
     background-color: var(--main-orange);
 }
 
+.category:hover {
+    background-color: var(--warm-yellow);
+}
+
 .categories {
     max-width: 30rem;
-    padding: 1rem;
+    padding: 1rem 1rem 0 1rem;
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -423,5 +430,7 @@ textarea {
     background-color: var(--main-orange);
     color: var(--orange-gray);
 }
+
+
 /* Uncomment to activate darkmode based on system settings */
 /* @import "dark-mode.css"; *.menu-item {
