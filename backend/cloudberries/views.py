@@ -10,12 +10,22 @@ from django.contrib.auth.decorators import login_required
 from .forms import ContactForm
 
 def cloudberries_index(request):
-    posts = Post.objects.all().order_by("-created_on")[:3]
+    posts = Post.objects.all().order_by("-created_on")[:5]
+    tutorials = Tutorial.objects.all()#.order_by("-created_on")[:3]
+    projects = Project.objects.all()#.order_by("-created_on")[:3]
     context = {
         "posts": posts,
         "post_header": "Latest Blog Posts",
         "post_footer": "more posts",
         "footer_link": "cloudberries_posts",
+        "projects": projects,
+        "project_header": "Latest Projects",
+        "project_footer": "more projects",
+        "project_link": "cloudberries_projects",
+        "tutorials": tutorials, 
+        "tutorial_header": "Latest Tutorials",
+        "tutorial_footer": "more tutorials",
+        "tutorial_link": "cloudberries_tutorials",
     }
     return render(request, "cloudberries/index.html", context)
 

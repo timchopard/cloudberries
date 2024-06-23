@@ -8,8 +8,15 @@
         <h1 class="main-title">cloudberries</h1>
     </div>
     {% block posts %}
-    {% include "listbox.html" with posts=posts header=post_header footer=post_footer footer_link=footer_link additional_div_class="home-post-block" %}
+    <div class="home-block">
+        <div class="home-left">
+            {% include "listbox.html" with posts=project header=project_header footer=project_footer footer_link=project_link additional_div_class="home-post-block" %}
+            {% include "listbox.html" with posts=tutorial header=tutorial_header footer=tutorial_footer footer_link=tutorial_link additional_div_class="home-post-block" %}
+        </div>
+        {% include "listbox.html" with posts=posts header=post_header footer=post_footer footer_link=footer_link additional_div_class="home-post-block" %}
+    </div>
     {% endblock posts %}
 </div>
+{% include "copyright.html" %}
 </body>
 {% endblock base %}

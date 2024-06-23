@@ -208,12 +208,32 @@ p {
 }
 
 .home-post-block {
-    max-width: 50rem;
+    max-width: 22rem;
+    min-width: 22rem;
+    margin: 0;
+}
+
+.home-block {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 3rem;
+}
+
+.home-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 25rem;
+    min-width: 25rem;
+    margin-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .post-block-wrapper {
     max-width: fit-content;
     min-width: fit-content;
+    max-height: fit-content;
     margin: auto;
     padding: 0.2rem;
     border-radius: 0.6rem;
@@ -488,5 +508,48 @@ p.success {
     user-select: none;
 }
 
+small {
+    display: block;
+    max-width: fit-content;
+    margin: auto;
+    margin-bottom: 0.2rem;
+    color: var(--light-orange-gray);
+}
+
+div.bottom-menu {
+    margin: auto;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    max-width: 30rem;
+    min-width: 30rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+a.bottom-item {
+    color: var(--orange-gray);
+    display: block;
+    min-width: 7rem;
+}
+
+a.bottom-item:hover {
+    font-family: "Red Hat Display";
+    color: var(--main-orange);
+}
+
+hr.bottom-menu {
+    height: 0.05rem;
+    margin: auto;
+    margin-top: 5rem;
+    width: 40rem;
+    background: linear-gradient(
+        90deg, 
+        transparent 0%, 
+        var(--main-orange) 50%, 
+        transparent 100%
+    );
+}
+
 /* Uncomment to activate darkmode based on system settings */
 /* @import "dark-mode.css"; *.menu-item {
+
