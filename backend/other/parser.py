@@ -111,12 +111,9 @@ class MarkdownToHTML():
 
     def line_by_line(self, in_string:str):
         in_list = in_string.split('\n')
+        self.__add_classes = True
         if self.is_comment(in_list[0]):
             instructions = in_list[0].split(' ')
-            if 'mkcon' in instructions:
-                self.__make_contents = True
-            if 'addcls' in instructions:
-                self.__add_classes = True
 
         out_list = []
         for item in in_list:
