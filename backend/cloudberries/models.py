@@ -21,8 +21,16 @@ class Post(models.Model):
         return self.title
     
 class Project(models.Model):
-    pass
+    title = models.CharField(max_length=256)
+    body = models.TextField()
+    summary = models.CharField(max_length=200)
+    created_on = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
 
 
 class Tutorial(models.Model):
-    pass
+    title = models.CharField(max_length=256)
+    body = models.TextField()
+    summary = models.CharField(max_length=200)
+    created_on = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)

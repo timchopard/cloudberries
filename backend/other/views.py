@@ -1,8 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
+from django.views.generic import FormView, TemplateView
 import pandas as pd
 import numpy as np
 from plotly.offline import plot
 import plotly.express as px
+
+from .forms import MdHtmlForm
+from .parser import MarkdownToHTML
 
 def other_index(request):
     context = {
@@ -61,8 +65,35 @@ def internship(request):
     context = {'plot_div': finished_plot}
     return render(request, "other/internship.html", context)
 
-def gas(request):
-    context = {
 
-    }
-    return render(request, "other/gas.html", context)
+class MdHtmlView(FormView):
+    form_class = MdHtmlForm
+    template_name = "other/parser.html"
+
+    def get_success_url(self):
+        return reverse("other_parsed")
+
+    def form_valid(self, form):
+        markdown = form.cleaned_data.get("markdown")
+
+        parser = MarkdownToHTML()
+        html = parser.split_text(markdown)
+        self.request.session['parsed_html'] = html
+
+        print(html)
+
+        return super(MdHtmlView, self).form_valid(form)
+    
+class MdParsed(TemplateView):
+    template_name = "other/parsed.html"
+    
+    def setup(self, request): 
+        super().setup(request)
+        if 'parsed_html' in request.session:
+            self.parsed_html = request.session['parsed_html']
+
+    def get_context_data(self):
+        context = super().get_context_data()
+        context["parsed_html"] = self.parsed_html
+        return context
+
