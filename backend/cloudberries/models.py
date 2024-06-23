@@ -19,3 +19,10 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
+    
+class Project(models.Model):
+    pass
+
+
+class Tutorial(models.Model):
+    pass

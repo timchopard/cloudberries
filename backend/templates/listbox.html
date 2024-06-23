@@ -1,6 +1,7 @@
 <div class="post-block-wrapper">
 <div class="post-block {{ additional_div_class }}">
     <h2>{{ header }}</h2>
+    {% if posts %}
     {% for post in posts %}
         <h3>
             <a href="{% url 'cloudberries_detail' post.pk %}">
@@ -21,6 +22,9 @@
             <div class="breaker"></div>
         {% endif %}
     {% endfor %}
+    {% else %}
+        <p>There are no {{ header|lower }} here yet. Hopefully this will change very soon!</p>
+    {% endif %}
     {% if footer_link%}
         <div class="breaker"></div>
         <a href="{% url footer_link %}">{{ footer }}</a>

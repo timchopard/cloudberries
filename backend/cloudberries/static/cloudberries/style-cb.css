@@ -52,23 +52,23 @@ hr {
     font-size: 1.4rem;
 }
 
-.menu-item:nth-child(1) {
+.menu-index {
     background-image: var(--blob-menu-4);
     background-size: 85%;
 }
 
-.menu-item:nth-child(3) {
+.menu-tut {
     padding-left: 1rem;
     background-image: var(--blob-menu-3);
     background-size: 85%;
 }
 
-.menu-item:nth-child(4) {
+.menu-blog {
     background-image: var(--blob-menu-2);
     background-size: 80%;
 }
 
-.menu-item:nth-child(5) {
+.menu-cont {
     background-image: var(--blob-menu-5);
 }
 
@@ -213,6 +213,7 @@ p {
 
 .post-block-wrapper {
     max-width: fit-content;
+    min-width: fit-content;
     margin: auto;
     padding: 0.2rem;
     border-radius: 0.6rem;

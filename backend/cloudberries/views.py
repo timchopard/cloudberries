@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from cloudberries.models import Category, Post
+from cloudberries.models import Category, Post, Project, Tutorial
 from cloudberries.markdownparser import MarkDownToHtml
 
 from django.conf import settings
@@ -22,10 +22,20 @@ def cloudberries_index(request):
 def cloudberries_posts(request):
     posts = Post.objects.all().order_by("-created_on")
     context = {
+        "title": "Blog",
         "posts": posts,
         "post_header": "Posts",
     }
-    return render(request, "cloudberries/posts.html", context)
+    return render(request, "cloudberries/listpage.html", context)
+
+def cloudberries_projects(request):
+    projects = Project.objects.all()
+    context = {
+        "title": "Projects",
+        "posts": projects,
+        "post_header": "Projects",
+    }
+    return render(request, "cloudberries/listpage.html", context)
 
 def cloudberries_category(request, category):
     posts = Post.objects.filter(
@@ -61,7 +71,7 @@ class ContactView(FormView):
         return reverse("cloudberries_success")
     
     def form_valid(self, form):
-        sender = form.cleaned_data.get("sender")
+        sender = form.cleaned_data.get("email")
         subject = form.cleaned_data.get("subject")
         message = form.cleaned_data.get("message")
         cc_myself = form.cleaned_data.get("cc_myself")
@@ -81,13 +91,16 @@ class ContactView(FormView):
         send_mail(recipient_list=[settings.NOTIFY_EMAIL], **send_vars)
 
         if cc_myself:
-            send_vars["subject"] = "Do Not Reply: Cloudberries Contact"
+            send_vars["subject"] = "Do Not Reply: Cloudberries Contact Form"
             send_mail(recipient_list=[sender], **send_vars)
 
         return super(ContactView, self).form_valid(form)
 
-def cloudberries_projects(request):
-    return render(request, "cloudberries/underconstruction.html")
-
 def cloudberries_tutorials(request):
-    return render(request, "cloudberries/underconstruction.html")
+    tutorials = Tutorial.objects.all()
+    context = {
+        "title": "Tutorials",
+        "posts": tutorials,
+        "post_header": "Tutorials",
+    }
+    return render(request, "cloudberries/listpage.html", context)
