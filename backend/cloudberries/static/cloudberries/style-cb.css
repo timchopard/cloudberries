@@ -508,7 +508,7 @@ p.success {
     user-select: none;
 }
 
-small {
+small.copy {
     display: block;
     max-width: fit-content;
     margin: auto;
