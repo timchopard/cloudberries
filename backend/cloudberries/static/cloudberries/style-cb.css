@@ -278,6 +278,7 @@ p {
     color: var(--main-orange);
     margin: auto;
     text-shadow: none;
+    margin-top: 2rem;
 }
 
 .parser-h3 {
@@ -301,6 +302,8 @@ p {
     margin: auto;
     list-style: none;
     padding-left: 0;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
 }
 
 .parser-ul li {
