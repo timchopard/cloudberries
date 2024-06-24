@@ -288,6 +288,11 @@ p {
 /*  */
 }
 
+.parser-p {
+    margin: 1rem;
+    margin-top: 0.5rem;
+}
+
 .parser-ul {
     min-width: 40rem;
     max-width: 40rem;
@@ -311,6 +316,8 @@ p {
     height: 1em;
     background-repeat: no-repeat;
     background-image: var(--cloudberry);
+    margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .parser-ol {
@@ -361,12 +368,61 @@ p {
     font-size: 1.5rem;
 }
 
+table {
+    max-width: fit-content;
+    margin: auto;
+}
+
+tr {
+    margin: 0.2rem;
+}
+
+table td {
+    padding: 0.2rem 1rem 0.2rem 1rem;
+}
+
+table tr:nth-child(even) {
+    background-color: var(--pale-orange);
+}
+table tr:nth-child(odd) {
+    background-color: var(--paler-orange);
+}
+table tr:first-child {
+    background-color: var(--main-orange);
+}
+
+blockquote {
+    margin-left: 12rem;
+    padding-left: 3rem;
+    padding-right: 5rem;
+    padding-bottom: 0.5rem;
+    padding-top: 1rem;
+    border-left: 0.1rem solid var(--pale-orange);
+}
+
+blockquote h4 {
+    color: var(--orange-gray);
+    font-weight: 400;
+}
+
+blockquote p {
+    color: var(--orange-gray);
+    font-weight: 300;
+}
+
 code {
     margin: 0;
     font-size: 0.79rem; /* Allows 80 chars per line */
     white-space: pre-wrap;
     word-wrap: break-word;
     border-radius: 0.2rem;
+}
+
+small.caption {
+    display: block;
+    max-width: fit-content;
+    margin: auto;
+    margin-bottom: 1rem;
 }
 
 a.selected {

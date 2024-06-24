@@ -1,7 +1,8 @@
 :root {
     counter-reset: eqcount;
     counter-reset: codecount;
-    --pale-orange   : rgba(244,212,162,1);
+    --pale-orange   : #ffd8a8;
+    --paler-orange  : #ffe8cc;
     --pale-blue     : rgba(202,232,254,1);
     --warm-yellow   : #f59f00;
     --main-orange   : #f08c00;
