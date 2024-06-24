@@ -281,7 +281,9 @@ p {
 }
 
 .parser-h3 {
-/*  */
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--orange-gray);
 }
 
 .parser-h4 {
@@ -395,8 +397,7 @@ blockquote {
     margin-left: 12rem;
     padding-left: 3rem;
     padding-right: 5rem;
-    padding-bottom: 0.5rem;
-    padding-top: 1rem;
+    margin-bottom: 2rem;
     border-left: 0.1rem solid var(--pale-orange);
 }
 
