@@ -10,10 +10,10 @@
     {% block posts %}
     <div class="home-block">
         <div class="home-left">
-            {% include "listbox.html" with posts=project header=project_header footer=project_footer footer_link=project_link additional_div_class="home-post-block" %}
-            {% include "listbox.html" with posts=tutorial header=tutorial_header footer=tutorial_footer footer_link=tutorial_link additional_div_class="home-post-block" %}
+            {% include "listbox.html" with post_type="cloudberries_project_detail" posts=projects header=project_header footer=project_footer footer_link=project_link additional_div_class="home-post-block" %}
+            {% include "listbox.html" with post_type="cloudberries_tutorial_detail" posts=tutorials header=tutorial_header footer=tutorial_footer footer_link=tutorial_link additional_div_class="home-post-block" %}
         </div>
-        {% include "listbox.html" with posts=posts header=post_header footer=post_footer footer_link=footer_link additional_div_class="home-post-block" %}
+        {% include "listbox.html" with post_type="cloudberries_detail" posts=posts header=post_header footer=post_footer footer_link=footer_link additional_div_class="home-post-block" %}
     </div>
     {% endblock posts %}
 </div>

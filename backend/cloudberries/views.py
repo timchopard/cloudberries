@@ -35,6 +35,7 @@ def cloudberries_posts(request):
         "title": "Blog",
         "posts": posts,
         "post_header": "Posts",
+        "post_type": "cloudberries_detail",
     }
     return render(request, "cloudberries/listpage.html", context)
 
@@ -44,6 +45,7 @@ def cloudberries_projects(request):
         "title": "Projects",
         "posts": projects,
         "post_header": "Projects",
+        "post_type": "cloudberries_project_detail",
     }
     return render(request, "cloudberries/listpage.html", context)
 
@@ -67,6 +69,20 @@ def cloudberries_detail(request, pk):
     context = {
         "post": post,
         # "body": body,
+    }
+    return render(request, "cloudberries/detail.html", context)
+
+def cloudberries_tutorial_detail(request, pk):
+    post = Tutorial.objects.get(pk=pk)
+    context = {
+        "post": post,
+    }
+    return render(request, "cloudberries/detail.html", context)
+
+def cloudberries_project_detail(request, pk):
+    post = Project.objects.get(pk=pk)
+    context = {
+        "post": post,
     }
     return render(request, "cloudberries/detail.html", context)
 
@@ -112,5 +128,6 @@ def cloudberries_tutorials(request):
         "title": "Tutorials",
         "posts": tutorials,
         "post_header": "Tutorials",
+        "post_type": "cloudberries_tutorial_detail",
     }
     return render(request, "cloudberries/listpage.html", context)
