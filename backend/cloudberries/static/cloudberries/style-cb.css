@@ -574,6 +574,7 @@ small.copy {
     margin: auto;
     margin-bottom: 0.2rem;
     color: var(--light-orange-gray);
+    font-size: 0.5rem;
 }
 
 div.bottom-menu {
