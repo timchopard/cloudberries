@@ -24,7 +24,7 @@ DEBUG = os.environ.get("DJANGO_DEBUG", '') != 'False'
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", '').split(' ')
 if not DEBUG:
-    ALLOWED_HOSTS = [".cloudberries.io", "cloudberries.io", "www.cloudberries.io"]
+    ALLOWED_HOSTS = [".cloudberries.io", "cloudberries.io", "www.cloudberries.io", "https://cloudberries.io"]
 
 NOTIFY_EMAIL = os.environ.get("DJANGO_NOTIFY_EMAIL", '')
 DEFAULT_FROM_EMAIL = os.environ.get("DJANGO_FROM_EMAIL", '')
