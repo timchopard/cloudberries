@@ -18,7 +18,6 @@ env_path = load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = os.environ.get(
     'DJANGO_SECRET_KEY', 
-    'django-insecure--ij93e1u23kunteqkeo)ma(k*_b6icxb$c-d$=cu10*=jw9@r*'
 )
 
 DEBUG = os.environ.get("DJANGO_DEBUG", '') != 'False'
