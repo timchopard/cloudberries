@@ -22,8 +22,9 @@ SECRET_KEY = os.environ.get(
 
 DEBUG = os.environ.get("DJANGO_DEBUG", '') != 'False'
 
-
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", '').split(' ')
+if not DEBUG:
+    ALLOWED_HOSTS = [".cloudberries.io",]
 
 NOTIFY_EMAIL = os.environ.get("DJANGO_NOTIFY_EMAIL", '')
 DEFAULT_FROM_EMAIL = os.environ.get("DJANGO_FROM_EMAIL", '')
