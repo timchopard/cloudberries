@@ -1,7 +1,31 @@
+{% extends "base.html" %}
+
+{% block extrascripts%}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai-sublime.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+{% endblock extrascripts%}
+
+{% block title %}
+Markdown to HTML 
+{% endblock title %}
+
+{% block page_content %}
+<div class="parser-block">
 <form method="post">
     {% csrf_token %}
-    {{ form }}
+    {{ form.markdown }}
     <div class="form-actions">
-        <button class="contact-button">Send</button>
+        <button class="parser">convert</button>
     </div>
 </form>
+{% if parsed_html %}
+<h3 class="parser">HTML</h3>
+<pre class="parser"><code class="hljs">{{parsed_html}}</code></pre>
+{% endif %}
+{% if raw_html %}
+<h3 class="parser">Original Markdown</h3>
+<pre class="parser"><code class="hljs">{{raw_html}}</code></pre>
+{% endif %}
+</div>
+{% endblock page_content %}

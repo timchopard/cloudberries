@@ -41,7 +41,6 @@ EMAIL_USE_TLS = True
 INSTALLED_APPS = [
     'cloudberries.apps.CloudberriesConfig',
     'other.apps.OtherConfig',
-    # 'bernimprov.apps.BernimprovConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

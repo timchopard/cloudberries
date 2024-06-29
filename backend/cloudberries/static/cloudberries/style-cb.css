@@ -611,6 +611,73 @@ hr.bottom-menu {
     );
 }
 
+div.parser-block {
+    padding: 1rem;
+    max-width: 50rem;
+    min-width: 40rem;
+    margin: auto;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    /* background-color: var(--light-orange-gray); */
+    background: linear-gradient(
+        315deg, 
+        var(--lighter-green)
+        0%, 
+        var(--pale-orange)
+        100%
+    )
+}
+
+form {
+    padding: 0;
+    margin: 0;
+}
+
+textarea.parser {
+    margin: 0;
+    max-width: 100% - 2rem;
+    min-width: 100% - 2rem;
+}
+
+pre.parser {
+    background-color: var(--orange-gray);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    max-height: fit-content;
+}
+code.parser {
+    min-width: 100% - 1rem;
+    min-height: 100% - 1rem;
+    max-width: 100% - 1rem;
+    max-height: 100% - 1rem;
+    margin: 0;
+    color: var(--light-orange-gray);
+}
+button.parser {
+    display: block;
+    min-height: 3rem;
+    min-width: 10rem;
+    margin: auto;
+    margin-top: 1rem;
+    background-color: var(--lighter-green);
+    border: 0.3rem var(--orange-gray) solid;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    font-family: "Fira Sans Condensed";
+    color: var(--orange-gray);
+    letter-spacing: 0.1rem;
+}
+button.parser:hover {
+    color: var(--lighter-green);
+    background-color: var(--pale-orange);
+    border-color: var(--lighter-green);
+}
+
+h3.parser {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
 /* Uncomment to activate darkmode based on system settings */
 /* @import "dark-mode.css"; *.menu-item {
 
