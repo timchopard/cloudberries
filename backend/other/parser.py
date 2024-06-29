@@ -33,4 +33,7 @@ def _get_footnotes(text:str):
 
 
 def full_parse(text:str):
-    return markdown.markdown(_get_footnotes(text))
+    text = markdown.markdown(_get_footnotes(text))
+    text = text.replace('<code>', '<pre><code class="hljs">')
+    text = text.replace('</code>', '</code></pre>') 
+    return text
