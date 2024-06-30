@@ -11,8 +11,8 @@ from .forms import ContactForm
 
 def cloudberries_index(request):
     posts = Post.objects.all().order_by("-created_on")[:5]
-    tutorials = Tutorial.objects.all()#.order_by("-created_on")[:3]
-    projects = Project.objects.all()#.order_by("-created_on")[:3]
+    tutorials = Tutorial.objects.all().order_by("-created_on")[:3]
+    projects = Project.objects.all().order_by("-created_on")[:3]
     context = {
         "posts": posts,
         "post_header": "Latest Blog Posts",

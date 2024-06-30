@@ -92,4 +92,5 @@ class MdHtmlView(FormView):
         markdown = form.cleaned_data.get("markdown")
         self.request.session['parsed_html'] = full_parse(markdown)
         self.request.session['raw_html'] = markdown
+        self.request.session.set_expiry(120)
         return super(MdHtmlView, self).form_valid(form)
