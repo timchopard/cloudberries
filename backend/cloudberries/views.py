@@ -1,18 +1,22 @@
 from django.shortcuts import render
 from cloudberries.models import Category, Post, Project, Tutorial
-from cloudberries.markdownparser import MarkDownToHtml
 
 from django.conf import settings
 from django.views.generic import FormView, TemplateView
 from django.core.mail import send_mail
 from django.shortcuts import reverse
-from django.contrib.auth.decorators import login_required
 from .forms import ContactForm
 
 def cloudberries_index(request):
-    posts = Post.objects.all().order_by("-created_on")[:5]
-    tutorials = Tutorial.objects.all().order_by("-created_on")[:3]
-    projects = Project.objects.all().order_by("-created_on")[:3]
+    posts = Post.objects.filter(
+        publish=True
+    ).order_by("-created_on")[:5]
+    tutorials = Tutorial.objects.filter(
+        publish=True
+    ).order_by("-created_on")[:3]
+    projects = Project.objects.filter(
+        publish=True
+    ).order_by("-created_on")[:3]
     context = {
         "posts": posts,
         "post_header": "Latest Blog Posts",
@@ -30,7 +34,7 @@ def cloudberries_index(request):
     return render(request, "cloudberries/index.html", context)
 
 def cloudberries_posts(request):
-    posts = Post.objects.all().order_by("-created_on")
+    posts = Post.objects.filter(publish=True).order_by("-created_on")
     context = {
         "title": "Blog",
         "posts": posts,
@@ -40,7 +44,7 @@ def cloudberries_posts(request):
     return render(request, "cloudberries/listpage.html", context)
 
 def cloudberries_projects(request):
-    projects = Project.objects.all().order_by("-created_on")
+    projects = Project.objects.filter(publish=True).order_by("-created_on")
     context = {
         "title": "Projects",
         "posts": projects,
@@ -120,7 +124,7 @@ class ContactView(FormView):
         return super(ContactView, self).form_valid(form)
 
 def cloudberries_tutorials(request):
-    tutorials = Tutorial.objects.all()
+    tutorials = Tutorial.objects.filter(publish=True)
     context = {
         "title": "Tutorials",
         "posts": tutorials,

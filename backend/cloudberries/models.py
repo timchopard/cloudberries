@@ -16,16 +16,22 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField("Category", related_name="posts")
+    publish = models.BooleanField(default=True)
     
     def __str__(self):
         return self.title
-    
+
+
 class Project(models.Model):
     title = models.CharField(max_length=256)
     body = models.TextField()
     summary = models.CharField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
+    publish = models.BooleanField(default=True)
+
+    def __str__(self) -> str:
+        return self.title
 
 
 class Tutorial(models.Model):
@@ -34,3 +40,7 @@ class Tutorial(models.Model):
     summary = models.CharField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
+    publish = models.BooleanField(default=True)
+
+    def __str__(self) -> str:
+        return self.title
