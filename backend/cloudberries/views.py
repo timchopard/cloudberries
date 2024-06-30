@@ -1,11 +1,15 @@
+import os
+
 from django.shortcuts import render
-from cloudberries.models import Category, Post, Project, Tutorial
+from cloudberries.models import Category, Post, Project, Tutorial, Upload
 
 from django.conf import settings
 from django.views.generic import FormView, TemplateView
 from django.core.mail import send_mail
 from django.shortcuts import reverse
-from .forms import ContactForm
+from django.contrib.auth.decorators import login_required
+
+from .forms import ContactForm, PostForm
 
 def cloudberries_index(request):
     posts = Post.objects.filter(
@@ -132,3 +136,69 @@ def cloudberries_tutorials(request):
         "post_type": "cloudberries_tutorial_detail",
     }
     return render(request, "cloudberries/listpage.html", context)
+
+@login_required
+def upload_file_view(request):
+    form = PostForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        form = PostForm
+        obj = Upload.objects.get(activated=False)
+        info_dict = {"TYPE": obj.post_type}
+        with open(obj.meta_file.path, 'r') as f:
+            for line in f.readlines():
+                if '=' not in line:
+                    continue
+                info_dict[line.split("=")[0]] = line.split("=")[1]
+        with open(obj.body_file.path, 'r') as f:
+            info_dict["BODY"] = f.read()
+
+        os.remove(obj.meta_file.path)
+        os.remove(obj.body_file.path)
+        
+        obj.activated = True  
+        obj.save()
+        
+        for key in ["TITLE", "SUMMARY", "BODY"]:
+            if key not in info_dict.keys():
+                return render(
+                    request, 
+                    "cloudberries/upload.html", 
+                    {"form": form}
+                )
+
+        categories = []
+        categories_raw = info_dict["CATEGORIES"].split('[')[1].split(']')[0]
+        categories_raw = categories_raw.split(' ')
+        for category in categories_raw:
+            if len(Category.objects.filter(name=category)) < 1:
+                Category.objects.create(
+                    name = category
+                )
+            categories.append(Category.objects.filter(name=category))
+
+        if info_dict["TYPE"] == "post":
+            Post.objects.create(
+                title = info_dict["TITLE"],
+                body = info_dict["BODY"],
+                summary = info_dict["SUMMARY"],
+                publish=False
+            )
+        elif info_dict["TYPE"] == "tutorial":
+            Tutorial.objects.create(
+                title = info_dict["TITLE"],
+                body = info_dict["BODY"],
+                summary = info_dict["SUMMARY"],
+                publish=False
+            )
+        elif info_dict["TYPE"] == "project":
+            Project.objects.create(
+                title = info_dict["TITLE"],
+                body = info_dict["BODY"],
+                summary = info_dict["SUMMARY"],
+                publish=False
+            )
+            
+
+    
+    return render(request, "cloudberries/upload.html", {"form": form})

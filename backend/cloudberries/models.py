@@ -44,3 +44,20 @@ class Tutorial(models.Model):
 
     def __str__(self) -> str:
         return self.title
+    
+class Upload(models.Model):
+    
+    class PostTypes(models.TextChoices):
+        post = "post"
+        tutorial = "tutorial"
+        project = "project"
+    
+    post_type = models.CharField(
+        max_length=32, 
+        choices=PostTypes.choices, 
+        default=PostTypes.post
+    )
+    meta_file = models.FileField(upload_to='post_uploads')
+    body_file = models.FileField(upload_to='post_uploads')
+    uploaded = models.DateTimeField(auto_now_add=True)
+    activated = models.BooleanField(default=False)

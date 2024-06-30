@@ -54,4 +54,9 @@ urlpatterns = [
         views.cloudberries_tutorials,
         name="cloudberries_tutorials"
     ),
+    path(
+        "upload/post",
+        views.upload_file_view,
+        name="upload_blog",
+    )
 ]
