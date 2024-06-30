@@ -40,7 +40,7 @@ def cloudberries_posts(request):
     return render(request, "cloudberries/listpage.html", context)
 
 def cloudberries_projects(request):
-    projects = Project.objects.all()
+    projects = Project.objects.all().order_by("-created_on")
     context = {
         "title": "Projects",
         "posts": projects,
@@ -64,11 +64,8 @@ def cloudberries_category(request, category):
 
 def cloudberries_detail(request, pk):
     post = Post.objects.get(pk=pk)
-    # mdhtml = MarkDownToHtml(post)
-    # body = mdhtml.iterate(post.body)
     context = {
         "post": post,
-        # "body": body,
     }
     return render(request, "cloudberries/detail.html", context)
 
