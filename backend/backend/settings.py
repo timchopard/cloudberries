@@ -39,6 +39,7 @@ EMAIL_USE_TLS = True
 # Application definition
 
 INSTALLED_APPS = [
+    'captcha',
     'cloudberries.apps.CloudberriesConfig',
     'other.apps.OtherConfig',
     'django.contrib.admin',

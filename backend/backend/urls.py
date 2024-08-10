@@ -5,4 +5,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("cloudberries.urls")),
     path("other/", include("other.urls")),
+    path('captcha/', include('captcha.urls')),
 ]

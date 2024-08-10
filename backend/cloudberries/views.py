@@ -11,16 +11,20 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import ContactForm, PostForm
 
+
+
 def cloudberries_index(request):
     posts = Post.objects.filter(
         publish=True
-    ).order_by("-created_on")[:5]
+    ).order_by("-created_on")[:3]
+    print(type(posts))
     tutorials = Tutorial.objects.filter(
         publish=True
     ).order_by("-created_on")[:3]
     projects = Project.objects.filter(
         publish=True
     ).order_by("-created_on")[:3]
+
     context = {
         "posts": posts,
         "post_header": "Latest Blog Posts",

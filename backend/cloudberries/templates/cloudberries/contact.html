@@ -5,6 +5,10 @@
     Contact
 {% endblock title %}
 
+{% block extrascripts %}
+<!-- <script async defer src="/altcha.js" type="module"></script> -->
+{% endblock extrascripts %}
+
 {% block page_content %}
 <div class="post-block-wrapper">
     <div class="post-block">
@@ -19,6 +23,7 @@
             <div class="form-actions">
                 <button class="contact-button" type="submit">Send</button>
             </div>
+            <altcha-widget challengeurl="https://eu.altcha.org/api/v1/challenge?apiKey=ckey_ckey_01de81f1e69f80295ca22ba73ea1"></altcha-widget>
         </form>
     </div>
 </div>
